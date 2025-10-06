@@ -1,0 +1,73 @@
+q0 0 q0 
+q0 1 q1 
+q0 e q1 
+q1 1 q2 
+q1 e q2
+
+Enter number of states: 3
+Enter number of input symbols (excluding E): 2
+Enter the input symbols (e.g., a b): a b
+Enter number of E-transitions: 2
+Enter E-transitions (from to):
+0
+1
+1
+2
+Enter number of normal transitions: 2
+Enter transitions (from symbol to):
+2 a 2
+1 b 1
+
+Original Transitions:
+q0 -- a --> NULL
+q0 -- b --> NULL
+q1 -- a --> NULL
+q1 -- b --> q1
+q2 -- a --> q2
+q2 -- b --> NULL
+
+Transitions after Removing E:
+q0 -- a --> q2
+q0 -- b --> q1 q2
+q1 -- a --> q2
+q1 -- b --> q1 q2
+q2 -- a --> q2
+q2 -- b --> NULL
+
+NOTE: Use 'e' for epsilon and place it last if present.
+
+Enter number of alphabets: 2
+Enter the alphabets one per line:
+a
+b
+Enter number of states: 3
+Enter start state (e.g., 1): 1
+Enter number of final states: 2
+Enter final states:
+2
+3
+Enter number of transitions: 4
+Enter transitions in format: from_state alphabet to_state
+1 a 2
+1 a 3
+2 b 3
+3 b 3
+
+Equivalent DFA Construction
+-----------------------------
+d({q1}, a) = {q2,q3}
+d({q1}, b) = NULL
+d({q2,q3}, a) = NULL
+d({q2,q3}, b) = {q3}
+d({q3}, a) = NULL
+d({q3}, b) = {q3}
+
+DFA States:
+State 0: {q1}
+State 1: {q2,q3}
+State 2: {q3}
+
+DFA Alphabet Set: a b
+Start State of DFA: {q1}
+Final States of DFA: {q2,q3} {q3}
+
